@@ -1,0 +1,126 @@
+/*
+CSS for Game Settings
+*/
+
+.GameSettings {
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px 0px grey;
+}
+.slider {
+    display: none;
+}
+.slider-0 {
+    display: flex;
+    position: relative;
+    background: white;
+    z-index: 1;
+    width: 60px;
+    height:45px;
+}
+svg {
+    position: relative;
+    padding-left: 15px;
+    top: 8px;
+}
+rect {
+    fill: grey;
+    opacity: .5;
+}
+.options {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    font-size: 14px;
+}
+.settings {
+    display: none;
+}
+.settings-1 {
+    margin-right: 4px;
+    padding:13px;
+    position: relative;
+}
+.new-game {
+    padding:13px;
+    font-size:14px;
+    background-color: white;
+    border: none;
+}
+.settings-1:hover {
+    color:#026345;
+}
+.settings:checked+label {
+    color: #026345;
+    font-weight: bold;
+    box-shadow: 0 2px 0 0 #026345;
+}
+.new-game:hover {
+    color:#026345;
+    box-shadow: 0 2px 0 0 #026345;
+}
+.new-game:active {
+    color: #01291d;
+    box-shadow: 0 2px 0 0 #01291d;
+}
+.slider:checked~.slider-0>svg>rect {
+    opacity: .7;
+}
+.slider:checked~.slider-0>svg>rect:nth-last-child(3) {
+    animation: rotateTop .5s forwards;
+}
+.slider:checked~.slider-0>svg>rect:nth-last-child(2) {
+    animation: rotateMiddle .5s forwards;
+}
+.slider:checked~.slider-0>svg>rect:nth-last-child(1) {
+    animation: rotateBottom .5s forwards;
+}
+.slider:not(:checked)~.slider-0>svg>rect:nth-last-child(3) {
+    animation: unrotateTop .5s forwards;
+}
+.slider:not(:checked)~.slider0>svg>rect:nth-last-child(2) {
+    animation: unrotateMiddle .5s forwards;
+}
+.slider:not(:checked)~.slider-0>svg>rect:nth-last-child(1) {
+    animation: unrotateBottom .5s forwards;
+}
+@keyframes rotateMiddle {
+    99% {transform: translate(40px, -17px) rotate(45deg)}
+    100% {opacity: 0;}
+}
+@keyframes rotateTop {
+    100% {transform: translate(18px, 0px) rotate(45deg)}
+}
+@keyframes rotateBottom {
+    100% {transform: translate(-19px, 14px) rotate(-45deg)}
+}
+@keyframes unrotateMiddle {
+    0% {transform: translate(40px, -17px) rotate(45deg)}
+    100% {transform: rotate(0)}
+}
+@keyframes unrotateTop {
+    0% {transform: translate(18px, 0px) rotate(45deg)}
+    100% {transform: rotate(0)}
+}
+@keyframes unrotateBottom {
+    0% {transform: translate(-19px, 14px) rotate(-45deg)}
+    100% {transform: rotate(0)}
+}
+
+.slider:checked~.options {
+    animation: 2s menuForward forwards;
+}
+.slider:not(:checked)~.options {
+    animation: 2s menuBackward forwards;
+}
+@keyframes menuForward {
+    0% {left:-200px}
+    100% {left:8px}
+}
+@keyframes menuBackward {
+    0% {left:8px}
+    100% {left:-200px}
+}

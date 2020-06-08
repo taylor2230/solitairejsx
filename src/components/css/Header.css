@@ -1,0 +1,10 @@
+/*
+CSS for Header
+*/
+.header {
+    display: flex;
+    justify-content:  center;
+    letter-spacing: 1px;
+    background-color: #026345;
+    color: #01291d;
+}
